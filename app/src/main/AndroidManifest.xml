@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AplicacionDeIndemnizaciones">
         <activity
+            android:name=".Activities.Indemnizaciones"
+            android:exported="true" />
+        <activity
+            android:name=".Activities.Home"
+            android:exported="true" />
+        <activity
             android:name=".Activities.DatosIniciales"
             android:exported="true" />
         <activity

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FFF"
     tools:context=".MainActivity">
 
 
@@ -23,6 +24,22 @@
         android:gravity="center"
         />
 
+    <EditText
+        android:id="@+id/enter_user"
+        android:hint="Ingrese su usuario"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textSize="25dp"
+        />
+
+    <EditText
+        android:id="@+id/enter_password"
+        android:hint="Ingrese su contraseña"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textSize="25dp"
+        />
+
     <Button
         android:id="@+id/button_enter"
         android:text="Inicio"
@@ -31,6 +48,7 @@
         android:background="#DF0909"
         android:textSize="30dp"
         android:textColor="#FFF"
+        android:onClick="enterSystem"
         />
 
 
