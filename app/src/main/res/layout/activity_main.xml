@@ -8,23 +8,32 @@
     tools:context=".MainActivity">
 
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/umg_logo" />
+
     <TextView
-        android:id="@+id/tv1"
-        android:text="ENTRADA"
-        android:textSize="40dp"
+        android:id="@+id/presentation"
+        android:text="Aplicación de indemnizaciones"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:textSize="30dp"
         android:gravity="center"
-        android:padding="5dp"
         />
 
-
     <Button
-        android:id="@+id/inicio"
+        android:id="@+id/button_enter"
         android:text="Inicio"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:textSize="25dp"
-        android:onClick="Inicio"
+        android:background="#DF0909"
+        android:textSize="30dp"
+        android:textColor="#FFF"
         />
+
+
+
+
 </LinearLayout>

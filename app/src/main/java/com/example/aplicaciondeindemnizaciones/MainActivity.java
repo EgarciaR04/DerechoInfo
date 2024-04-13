@@ -9,22 +9,16 @@ import android.widget.TextView;
 import com.example.aplicaciondeindemnizaciones.Activities.DatosIniciales;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView texto;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Declaracion_variables();
-
     }
 
-    public void Inicio(View v)
+    // Funcion utilizada para la declaracion de variables
+    public void Declaracion_variables()
     {
-        Intent intent = new Intent(this, DatosIniciales.class);
-        startActivity(intent);
-    }
 
-    private void Declaracion_variables() {
-        texto = findViewById(R.id.tv1);
     }
 }
