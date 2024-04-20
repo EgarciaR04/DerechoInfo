@@ -39,10 +39,6 @@ public class Indemnizaciones extends AppCompatActivity {
         {
             salary_user.setText(salary.toString());
 
-            SharedPreferences.Editor editor = sp.edit();
-            editor.putInt("average_salary", 0);
-            editor.apply();
-
         }
 
         start_date.setOnClickListener(new View.OnClickListener() {
@@ -86,17 +82,6 @@ public class Indemnizaciones extends AppCompatActivity {
 
         fecha_inicio = findViewById(R.id.fecha_inicio);
         fecha_fin = findViewById(R.id.fecha_fin);
-    }
-//
-//    public void salarioPromedio(View v)
-//    {
-//        Intent intent = new Intent(this, SalarioPromedioActivity.class);
-//        startActivity(intent);
-//    }
-
-    public void Fecha_inicio()
-    {
-
     }
 
     // Metodo para obtener fecha en formato dia/mes/año

@@ -130,7 +130,7 @@
                 android:layout_height="wrap_content"
                 android:background="#FF0000"
                 android:textColor="#FFF"
-                android:onClick="salarioPromedio"
+                android:onClick="reiniciarSalario"
                 android:layout_weight="1"/>
 
             <TextView

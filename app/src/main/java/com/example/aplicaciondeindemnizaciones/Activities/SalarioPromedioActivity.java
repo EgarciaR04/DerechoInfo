@@ -25,19 +25,53 @@ public class SalarioPromedioActivity extends AppCompatActivity {
         Integer average_salary;
         average_salary = Average();
         SP_average(average_salary);
-        Intent intent = new Intent(this, Indemnizaciones.class);
+        Intent intent = new Intent(this, Home.class);
         startActivity(intent);
     }
 
 
 
+
     private Integer Average()
     {
-        Integer average_salary;
-        average_salary = Integer.parseInt(first_salary.getText().toString()) + Integer.parseInt(second_salary.getText().toString()) +
-                Integer.parseInt(third_salary.getText().toString()) + Integer.parseInt(fourth_salary.getText().toString()) +
-                Integer.parseInt(fifth_salary.getText().toString()) + Integer.parseInt(sixth_salary.getText().toString());
-        average_salary = average_salary / 6;
+        Integer average_salary = 0;
+//        average_salary = Integer.parseInt(first_salary.getText().toString()) + Integer.parseInt(second_salary.getText().toString()) +
+//                Integer.parseInt(third_salary.getText().toString()) + Integer.parseInt(fourth_salary.getText().toString()) +
+//                Integer.parseInt(fifth_salary.getText().toString()) + Integer.parseInt(sixth_salary.getText().toString());
+//        average_salary = average_salary / 6;
+        if (third_salary.getText().toString().equals(""))
+        {
+            average_salary = Integer.parseInt(first_salary.getText().toString()) + Integer.parseInt(second_salary.getText().toString());
+            average_salary = average_salary/2;
+        }
+        else if(fourth_salary.getText().toString().equals(""))
+        {
+            average_salary = Integer.parseInt(first_salary.getText().toString()) + Integer.parseInt(second_salary.getText().toString()) +
+                    Integer.parseInt(third_salary.getText().toString());
+            average_salary = average_salary / 3;
+        }
+        else if (fifth_salary.getText().toString().equals(""))
+        {
+            average_salary = Integer.parseInt(first_salary.getText().toString()) + Integer.parseInt(second_salary.getText().toString()) +
+                    Integer.parseInt(third_salary.getText().toString()) + Integer.parseInt(fourth_salary.getText().toString());
+            average_salary = average_salary / 4;
+        }
+
+        else if (sixth_salary.getText().toString().equals(""))
+        {
+            average_salary = Integer.parseInt(first_salary.getText().toString()) + Integer.parseInt(second_salary.getText().toString()) +
+                    Integer.parseInt(third_salary.getText().toString()) + Integer.parseInt(fourth_salary.getText().toString()) +
+                    Integer.parseInt(fifth_salary.getText().toString());
+            average_salary = average_salary / 5;
+        }
+        else if (!sixth_salary.getText().toString().equals(""))
+        {
+            average_salary = Integer.parseInt(first_salary.getText().toString()) + Integer.parseInt(second_salary.getText().toString()) +
+                    Integer.parseInt(third_salary.getText().toString()) + Integer.parseInt(fourth_salary.getText().toString()) +
+                    Integer.parseInt(fifth_salary.getText().toString()) + Integer.parseInt(sixth_salary.getText().toString());
+            average_salary = average_salary / 6;
+        }
+
         return average_salary;
     }
 

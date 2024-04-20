@@ -72,5 +72,8 @@ public class Home extends AppCompatActivity {
         SharedPreferences.Editor editor = sp.edit();
         editor.putInt("average_salary",0);
         editor.apply();
+
+        average_salary.setText("Salario promedio registrado: " + 0);
+
     }
 }
