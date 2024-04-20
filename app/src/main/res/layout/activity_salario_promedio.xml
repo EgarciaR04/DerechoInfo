@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.SalarioPromedioActivity"
+    tools:layout_editor_absoluteX="-1dp"
+    tools:layout_editor_absoluteY="41dp">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="310dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="57dp"
+        android:text="Ingrese los salarios que ha recibido. \nEn caso de no usar todos dejelos en blanco."
+        app:layout_constraintBottom_toTopOf="@+id/first_salary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/first_salary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginBottom="18dp"
+        android:ems="10"
+        android:hint="Ingrese su 1er. salario"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/second_salary"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <EditText
+        android:id="@+id/second_salary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="14dp"
+        android:ems="10"
+        android:hint="Ingrese su 2do. salario"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/third_salary"
+        app:layout_constraintStart_toStartOf="@+id/first_salary"
+        app:layout_constraintTop_toBottomOf="@+id/first_salary" />
+
+    <EditText
+        android:id="@+id/third_salary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="14dp"
+        android:ems="10"
+        android:hint="Ingrese su 3er. salario"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/fourth_salary"
+        app:layout_constraintStart_toStartOf="@+id/second_salary"
+        app:layout_constraintTop_toBottomOf="@+id/second_salary" />
+
+    <EditText
+        android:id="@+id/fourth_salary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="14dp"
+        android:ems="10"
+        android:hint="Ingrese su 4to. salario"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/fifth_salary"
+        app:layout_constraintEnd_toEndOf="@+id/third_salary"
+        app:layout_constraintTop_toBottomOf="@+id/third_salary" />
+
+    <EditText
+        android:id="@+id/fifth_salary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:ems="10"
+        android:hint="Ingrese su 5to. salario"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/sixth_salary"
+        app:layout_constraintStart_toStartOf="@+id/fourth_salary"
+        app:layout_constraintTop_toBottomOf="@+id/fourth_salary" />
+
+    <EditText
+        android:id="@+id/sixth_salary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginBottom="33dp"
+        android:ems="10"
+        android:hint="Ingrese su 6to. salario"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintStart_toStartOf="@+id/fifth_salary"
+        app:layout_constraintTop_toBottomOf="@+id/fifth_salary" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="25dp"
+        android:text="Si no tiene diferentes salarios en los ultimos 6 meses\nDeje en blanco los que no necesita."
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sixth_salary" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="101dp"
+        android:onClick="Toma_de_datos"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+</android.support.constraint.ConstraintLayout>

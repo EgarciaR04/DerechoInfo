@@ -10,14 +10,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AplicacionDeIndemnizaciones">
         <activity
-            android:name=".Activities.Indemnizaciones"
+            android:name=".Activities.SalarioPromedioActivity"
             android:exported="true" />
+        <activity
+            android:name=".Activities.Indemnizaciones"
+            android:exported="true"
+            android:parentActivityName=".Activities.Home">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.Home" />
+        </activity>
         <activity
             android:name=".Activities.Home"
-            android:exported="true" />
-        <activity
-            android:name=".Activities.DatosIniciales"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
