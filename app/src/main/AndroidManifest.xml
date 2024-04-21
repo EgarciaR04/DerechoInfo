@@ -10,6 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AplicacionDeIndemnizaciones">
         <activity
+            android:name=".Activities.VacacionesPendientes"
+            android:exported="true"
+            android:parentActivityName=".Activities.Home">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.Home"/>
+        </activity>
+        <activity
             android:name=".Activities.SalarioPromedioActivity"
             android:exported="true" />
         <activity

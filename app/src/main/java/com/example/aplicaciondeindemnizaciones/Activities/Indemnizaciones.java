@@ -41,21 +41,29 @@ public class Indemnizaciones extends AppCompatActivity {
 
         }
 
-        start_date.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DatePickerDialog dd = new DatePickerDialog(Indemnizaciones.this, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        fecha_inicio.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
-                    }
-                }, Integer.parseInt(obtenerFecha("yyyy", "America/Guatemala")),
-                        Integer.parseInt(obtenerFecha("MM", "America/Guatemala")) - 1,
-                        Integer.parseInt(obtenerFecha("dd", "America/Guatemala"))
-                );
-                dd.show();
-            }
-        });
+        String first_date = sp.getString("first_date", "");
+        if(first_date != "")
+        {
+            fecha_inicio.setText("Fecha de inicio: " + first_date);
+        }
+
+//        start_date.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                DatePickerDialog dd = new DatePickerDialog(Indemnizaciones.this, new DatePickerDialog.OnDateSetListener() {
+//                    @Override
+//                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+//                        fecha_inicio.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
+//                    }
+//                }, Integer.parseInt(obtenerFecha("yyyy", "America/Guatemala")),
+//                        Integer.parseInt(obtenerFecha("MM", "America/Guatemala")) - 1,
+//                        Integer.parseInt(obtenerFecha("dd", "America/Guatemala"))
+//                );
+//                dd.show();
+//            }
+//        });
+
+
 
         finish_date.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +100,7 @@ public class Indemnizaciones extends AppCompatActivity {
     }
 
     // metodo para obtener la fecha horaria al momento de la ejecucion;
-    public static String obtenerFecha(String formato, String zonaHoraria)
+    private static String obtenerFecha(String formato, String zonaHoraria)
     {
         Calendar calendar = Calendar.getInstance();
         Date date = calendar.getTime();
