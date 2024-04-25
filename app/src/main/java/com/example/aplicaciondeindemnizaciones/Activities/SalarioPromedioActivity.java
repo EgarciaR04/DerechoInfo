@@ -22,7 +22,7 @@ public class SalarioPromedioActivity extends AppCompatActivity {
     }
 
     public void Toma_de_datos(View v){
-        Integer average_salary;
+        Float average_salary;
         average_salary = Average();
         SP_average(average_salary);
         Intent intent = new Intent(this, Home.class);
@@ -32,56 +32,56 @@ public class SalarioPromedioActivity extends AppCompatActivity {
 
 
 
-    private Integer Average()
+    private Float Average()
     {
-        Integer average_salary = 0;
-//        average_salary = Integer.parseInt(first_salary.getText().toString()) + Integer.parseInt(second_salary.getText().toString()) +
-//                Integer.parseInt(third_salary.getText().toString()) + Integer.parseInt(fourth_salary.getText().toString()) +
-//                Integer.parseInt(fifth_salary.getText().toString()) + Integer.parseInt(sixth_salary.getText().toString());
+        Float average_salary = 0f;
+//        average_salary = Float.parseFloat(first_salary.getText().toString()) + Float.parseFloat(second_salary.getText().toString()) +
+//                Float.parseFloat(third_salary.getText().toString()) + Float.parseFloat(fourth_salary.getText().toString()) +
+//                Float.parseFloat(fifth_salary.getText().toString()) + Float.parseFloat(sixth_salary.getText().toString());
 //        average_salary = average_salary / 6;
         if (third_salary.getText().toString().equals(""))
         {
-            average_salary = Integer.parseInt(first_salary.getText().toString()) + Integer.parseInt(second_salary.getText().toString());
+            average_salary = Float.parseFloat(first_salary.getText().toString()) + Float.parseFloat(second_salary.getText().toString());
             average_salary = average_salary/2;
         }
         else if(fourth_salary.getText().toString().equals(""))
         {
-            average_salary = Integer.parseInt(first_salary.getText().toString()) + Integer.parseInt(second_salary.getText().toString()) +
-                    Integer.parseInt(third_salary.getText().toString());
+            average_salary = Float.parseFloat(first_salary.getText().toString()) + Float.parseFloat(second_salary.getText().toString()) +
+                    Float.parseFloat(third_salary.getText().toString());
             average_salary = average_salary / 3;
         }
         else if (fifth_salary.getText().toString().equals(""))
         {
-            average_salary = Integer.parseInt(first_salary.getText().toString()) + Integer.parseInt(second_salary.getText().toString()) +
-                    Integer.parseInt(third_salary.getText().toString()) + Integer.parseInt(fourth_salary.getText().toString());
+            average_salary = Float.parseFloat(first_salary.getText().toString()) + Float.parseFloat(second_salary.getText().toString()) +
+                    Float.parseFloat(third_salary.getText().toString()) + Float.parseFloat(fourth_salary.getText().toString());
             average_salary = average_salary / 4;
         }
 
         else if (sixth_salary.getText().toString().equals(""))
         {
-            average_salary = Integer.parseInt(first_salary.getText().toString()) + Integer.parseInt(second_salary.getText().toString()) +
-                    Integer.parseInt(third_salary.getText().toString()) + Integer.parseInt(fourth_salary.getText().toString()) +
-                    Integer.parseInt(fifth_salary.getText().toString());
+            average_salary = Float.parseFloat(first_salary.getText().toString()) + Float.parseFloat(second_salary.getText().toString()) +
+                    Float.parseFloat(third_salary.getText().toString()) + Float.parseFloat(fourth_salary.getText().toString()) +
+                    Float.parseFloat(fifth_salary.getText().toString());
             average_salary = average_salary / 5;
         }
         else if (!sixth_salary.getText().toString().equals(""))
         {
-            average_salary = Integer.parseInt(first_salary.getText().toString()) + Integer.parseInt(second_salary.getText().toString()) +
-                    Integer.parseInt(third_salary.getText().toString()) + Integer.parseInt(fourth_salary.getText().toString()) +
-                    Integer.parseInt(fifth_salary.getText().toString()) + Integer.parseInt(sixth_salary.getText().toString());
+            average_salary = Float.parseFloat(first_salary.getText().toString()) + Float.parseFloat(second_salary.getText().toString()) +
+                    Float.parseFloat(third_salary.getText().toString()) + Float.parseFloat(fourth_salary.getText().toString()) +
+                    Float.parseFloat(fifth_salary.getText().toString()) + Float.parseFloat(sixth_salary.getText().toString());
             average_salary = average_salary / 6;
         }
 
         return average_salary;
     }
 
-    private void SP_average(Integer average)
+    private void SP_average(Float average)
     {
 
         SharedPreferences sp = getSharedPreferences("Average_Salary", Context.MODE_PRIVATE);
 //        SharedPreferences.Editor = sp.edit();
         SharedPreferences.Editor editor = sp.edit();
-        editor.putInt("average_salary", average);
+        editor.putFloat("average_salary", average);
         editor.apply();
     }
 

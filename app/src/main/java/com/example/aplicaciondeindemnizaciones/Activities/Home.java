@@ -15,6 +15,7 @@ import com.example.aplicaciondeindemnizaciones.R;
 import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
@@ -31,7 +32,7 @@ public class Home extends AppCompatActivity {
         first_date = findViewById(R.id.start_date);
 
         SharedPreferences sp = getSharedPreferences("Average_Salary", Context.MODE_PRIVATE);
-        Integer salary = sp.getInt("average_salary", 0);
+        Float salary = sp.getFloat("average_salary", 0f);
         if (!salary.equals(0))
         {
             average_salary.setText("Salario promedio registrado: " + salary);
@@ -52,6 +53,16 @@ public class Home extends AppCompatActivity {
         sdf = new SimpleDateFormat(formato);
         sdf.setTimeZone(TimeZone.getTimeZone(zonaHoraria));
         return sdf.format(date);
+    }
+
+    private static String Obetener_fecha(String formato)
+    {
+
+        Date fecha_actual = new Date();
+        SimpleDateFormat format = new SimpleDateFormat(formato);
+        String fecha_formateada = format.format(fecha_actual);
+
+        return fecha_formateada;
     }
 
     public void enterIndemnizacion(View v)
@@ -108,7 +119,25 @@ public class Home extends AppCompatActivity {
         DatePickerDialog dd = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                sp_first_date = dayOfMonth + "/" + (month + 1) + "/" + year;
+
+                if (dayOfMonth < 10 && month < 9)
+                {
+                    sp_first_date = year + "-"+ "0" + (month + 1) + "-" +"0" +dayOfMonth;
+                }
+                else if (dayOfMonth < 10 && month >= 9)
+                {
+                    sp_first_date =year + "-" + (month + 1) + "-" + "0" +dayOfMonth;
+                }
+                else if (dayOfMonth >= 10 && month >= 9)
+                {
+                    sp_first_date = year + "-" + (month + 1) + "-" + dayOfMonth;
+                }
+                else if (dayOfMonth >= 10 && month < 9)
+                {
+                    sp_first_date = year + "-" + "0"+(month + 1) + "-" + dayOfMonth;
+                }
+
+
                 SharedPreferences sp = getSharedPreferences("Average_Salary", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sp.edit();
                 editor.putString("first_date", sp_first_date);
@@ -116,9 +145,9 @@ public class Home extends AppCompatActivity {
 
                 first_date.setText("Fecha inicial registrada: " + sp_first_date);
             }
-        }, Integer.parseInt(obtenerFecha("yyyy", "America/Guatemala")),
-                Integer.parseInt(obtenerFecha("MM", "America/Guatemala")),
-                Integer.parseInt(obtenerFecha("dd", "America/Guatemala"))
+        }, Integer.parseInt(Obetener_fecha("yyyy")),
+                Integer.parseInt(Obetener_fecha("MM")) - 1,
+                Integer.parseInt(Obetener_fecha("dd"))
         );
         dd.show();
     }
