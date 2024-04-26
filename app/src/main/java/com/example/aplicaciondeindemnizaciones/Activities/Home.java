@@ -79,7 +79,8 @@ public class Home extends AppCompatActivity {
 
     public void enterAguinaldo(View v)
     {
-        // Abrir interfaz de Aguinaldos pendientes
+        Intent intent = new Intent(this, AguinaldoActivity.class);
+        startActivity(intent);
     }
 
     public void enterBono14(View v)
