@@ -85,7 +85,8 @@ public class Home extends AppCompatActivity {
 
     public void enterBono14(View v)
     {
-//      Abrir interfaz de Bono 14
+        Intent intent = new Intent(this, Bono14.class);
+        startActivity(intent);
     }
 
     public void enterSalariosPendientes(View v)

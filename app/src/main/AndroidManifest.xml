@@ -10,14 +10,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AplicacionDeIndemnizaciones">
         <activity
+            android:name=".Activities.Bono14"
+            android:exported="true"
+            android:parentActivityName=".Activities.Home">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.Home"/>
+        </activity>
+        <activity
             android:name=".Activities.AguinaldoActivity"
             android:exported="true"
             android:parentActivityName=".Activities.Home">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activities.Home"
-                />
-
+                android:value=".Activities.Home" />
         </activity>
         <activity
             android:name=".Activities.VacacionesPendientes"
