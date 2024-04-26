@@ -91,12 +91,14 @@ public class Home extends AppCompatActivity {
 
     public void enterSalariosPendientes(View v)
     {
-        // Abrir interfaz de Salarios pendientes
+        Intent intent =new Intent(this, SalariosPendientes.class);
+        startActivity(intent);
     }
 
     public void enterHorasExtraPendientes(View v)
     {
-        // Abrir interfaz de Horas Extras Pendientes
+        Intent intent = new Intent(this, HorasExtraordinarias.class);
+        startActivity(intent);
     }
 
     public void salarioPromedio(View v)
