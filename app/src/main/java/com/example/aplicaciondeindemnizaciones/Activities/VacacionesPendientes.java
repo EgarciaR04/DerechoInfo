@@ -24,7 +24,7 @@ import java.util.TimeZone;
 public class VacacionesPendientes extends AppCompatActivity {
     private CheckBox docente_work;
     private EditText vacation_days;
-    private TextView first_date;
+    private TextView first_date, last_date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +47,72 @@ public class VacacionesPendientes extends AppCompatActivity {
                     DatePickerDialog dd = new DatePickerDialog(VacacionesPendientes.this, new DatePickerDialog.OnDateSetListener() {
                         @Override
                         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                            String date = year + "/" + (month +1) + "/" + dayOfMonth;
+                            String date = "";
+                            if (dayOfMonth < 10 && month < 9)
+                            {
+                                date = year + "-"+ "0" + (month + 1) + "-" +"0" + dayOfMonth;
+                            }
+                            else if (dayOfMonth < 10 && month >= 9)
+                            {
+                                date = year + "-" + (month + 1) + "-" +"0"+ dayOfMonth;
+                            }
+                            else if (dayOfMonth >= 10 && month >= 9)
+                            {
+                                date = year + "-" + (month + 1) + "-" + dayOfMonth;
+                            }
+                            else if (dayOfMonth >= 10 && month < 9)
+                            {
+                                date = year + "-" + "0"+(month + 1) + "-" + dayOfMonth;
+                            }
                             first_date.setText("Fecha de inicio: " + date);
 
                             SharedPreferences.Editor edi = sp.edit();
                             edi.putString("first_date", date);
+                            edi.apply();
+                        }
+                    },Integer.parseInt(obtenerFecha("yyyy", "America/Guatemala")),
+                            Integer.parseInt(obtenerFecha("MM", "America/Guatemala")) - 1,
+                            Integer.parseInt(obtenerFecha("dd", "America/Guatemala"))
+                    );
+                    dd.show();
+                }
+            });
+        }
+
+        String date_2 = sp.getString("last_date", "");
+        if(!date_2.equals(""))
+        {
+            last_date.setText("Fecha de despido: " + date_2);
+        }
+        else
+        {
+            last_date.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DatePickerDialog dd =new DatePickerDialog(VacacionesPendientes.this, new DatePickerDialog.OnDateSetListener() {
+                        @Override
+                        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                            String date = "";
+                            if (dayOfMonth < 10 && month < 9)
+                            {
+                                date = year + "-"+ "0" + (month + 1) + "-" +"0" + dayOfMonth;
+                            }
+                            else if (dayOfMonth < 10 && month >= 9)
+                            {
+                                date = year + "-" + (month + 1) + "-" +"0"+ dayOfMonth;
+                            }
+                            else if (dayOfMonth >= 10 && month >= 9)
+                            {
+                                date = year + "-" + (month + 1) + "-" + dayOfMonth;
+                            }
+                            else if (dayOfMonth >= 10 && month < 9)
+                            {
+                                date = year + "-" + "0"+(month + 1) + "-" + dayOfMonth;
+                            }
+                            first_date.setText("Fecha de despido: " + date);
+
+                            SharedPreferences.Editor edi = sp.edit();
+                            edi.putString("last_date", date);
                             edi.apply();
                         }
                     },Integer.parseInt(obtenerFecha("yyyy", "America/Guatemala")),
@@ -107,6 +168,7 @@ public class VacacionesPendientes extends AppCompatActivity {
         docente_work = findViewById(R.id.docente_check);
         vacation_days = findViewById(R.id.vacation_days);
         first_date = findViewById(R.id.first_date_vac);
+        last_date = findViewById(R.id.last_date_vac);
     }
 
     private static String obtenerFecha(String formato, String zonaHoraria)
