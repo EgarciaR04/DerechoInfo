@@ -111,10 +111,10 @@ public class Home extends AppCompatActivity {
     {
         SharedPreferences sp = getSharedPreferences("Average_Salary", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
-        editor.putInt("average_salary",0);
+        editor.putFloat("average_salary",0f);
         editor.apply();
 
-        average_salary.setText("Salario promedio registrado: " + 0);
+        average_salary.setText("Salario promedio registrado: " + 0.0);
 
     }
 
