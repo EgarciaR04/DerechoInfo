@@ -28,42 +28,40 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        average_salary = findViewById(R.id.average_salary);
-        first_date = findViewById(R.id.start_date);
 
-        SharedPreferences sp = getSharedPreferences("Average_Salary", Context.MODE_PRIVATE);
-        Float salary = sp.getFloat("average_salary", 0f);
-        if (!salary.equals(0))
-        {
-            average_salary.setText("Salario promedio registrado: " + salary);
-        }
-
-        String first_date_declaretion = sp.getString("first_date", "");
-        if(!first_date_declaretion.equals(""))
-        {
-            first_date.setText("Fecha inicial registrada: " + first_date_declaretion);
-        }
+//        SharedPreferences sp = getSharedPreferences("Average_Salary", Context.MODE_PRIVATE);
+//        Float salary = sp.getFloat("average_salary", 0f);
+//        if (!salary.equals(0))
+//        {
+//            average_salary.setText("Salario promedio registrado: " + salary);
+//        }
+//
+//        String first_date_declaretion = sp.getString("first_date", "");
+//        if(!first_date_declaretion.equals(""))
+//        {
+//            first_date.setText("Fecha inicial registrada: " + first_date_declaretion);
+//        }
     }
 
-    private static String obtenerFecha(String formato, String zonaHoraria)
-    {
-        Calendar calendar = Calendar.getInstance();
-        Date date = calendar.getTime();
-        SimpleDateFormat sdf;
-        sdf = new SimpleDateFormat(formato);
-        sdf.setTimeZone(TimeZone.getTimeZone(zonaHoraria));
-        return sdf.format(date);
-    }
-
-    private static String Obetener_fecha(String formato)
-    {
-
-        Date fecha_actual = new Date();
-        SimpleDateFormat format = new SimpleDateFormat(formato);
-        String fecha_formateada = format.format(fecha_actual);
-
-        return fecha_formateada;
-    }
+//    private static String obtenerFecha(String formato, String zonaHoraria)
+//    {
+//        Calendar calendar = Calendar.getInstance();
+//        Date date = calendar.getTime();
+//        SimpleDateFormat sdf;
+//        sdf = new SimpleDateFormat(formato);
+//        sdf.setTimeZone(TimeZone.getTimeZone(zonaHoraria));
+//        return sdf.format(date);
+//    }
+//
+//    private static String Obetener_fecha(String formato)
+//    {
+//
+//        Date fecha_actual = new Date();
+//        SimpleDateFormat format = new SimpleDateFormat(formato);
+//        String fecha_formateada = format.format(fecha_actual);
+//
+//        return fecha_formateada;
+//    }
 
     public void enterIndemnizacion(View v)
     {
@@ -106,63 +104,63 @@ public class Home extends AppCompatActivity {
         Intent intent = new Intent(this, SalarioPromedioActivity.class);
         startActivity(intent);
     }
-
-    public void reiniciarSalario(View v)
-    {
-        SharedPreferences sp = getSharedPreferences("Average_Salary", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sp.edit();
-        editor.putFloat("average_salary",0f);
-        editor.apply();
-
-        average_salary.setText("Salario promedio registrado: " + 0.0);
-
-    }
-
-    public void Registrar_fecha_inicial(View v)
-    {
-        DatePickerDialog dd = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-
-                if (dayOfMonth < 10 && month < 9)
-                {
-                    sp_first_date = year + "-"+ "0" + (month + 1) + "-" +"0" +dayOfMonth;
-                }
-                else if (dayOfMonth < 10 && month >= 9)
-                {
-                    sp_first_date =year + "-" + (month + 1) + "-" + "0" +dayOfMonth;
-                }
-                else if (dayOfMonth >= 10 && month >= 9)
-                {
-                    sp_first_date = year + "-" + (month + 1) + "-" + dayOfMonth;
-                }
-                else if (dayOfMonth >= 10 && month < 9)
-                {
-                    sp_first_date = year + "-" + "0"+(month + 1) + "-" + dayOfMonth;
-                }
-
-
-                SharedPreferences sp = getSharedPreferences("Average_Salary", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sp.edit();
-                editor.putString("first_date", sp_first_date);
-                editor.apply();
-
-                first_date.setText("Fecha inicial registrada: " + sp_first_date);
-            }
-        }, Integer.parseInt(Obetener_fecha("yyyy")),
-                Integer.parseInt(Obetener_fecha("MM")) - 1,
-                Integer.parseInt(Obetener_fecha("dd"))
-        );
-        dd.show();
-    }
-
-    public void Reiniciar_fecha_inicial(View v)
-    {
-        SharedPreferences sp = getSharedPreferences("Average_Salary", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sp.edit();
-        editor.putString("first_date", "");
-        editor.apply();
-
-        first_date.setText("Fecha inicial registrada: ");
-    }
+//
+//    public void reiniciarSalario(View v)
+//    {
+//        SharedPreferences sp = getSharedPreferences("Average_Salary", Context.MODE_PRIVATE);
+//        SharedPreferences.Editor editor = sp.edit();
+//        editor.putFloat("average_salary",0f);
+//        editor.apply();
+//
+//        average_salary.setText("Salario promedio registrado: " + 0.0);
+//
+//    }
+//
+//    public void Registrar_fecha_inicial(View v)
+//    {
+//        DatePickerDialog dd = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+//            @Override
+//            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+//
+//                if (dayOfMonth < 10 && month < 9)
+//                {
+//                    sp_first_date = year + "-"+ "0" + (month + 1) + "-" +"0" +dayOfMonth;
+//                }
+//                else if (dayOfMonth < 10 && month >= 9)
+//                {
+//                    sp_first_date =year + "-" + (month + 1) + "-" + "0" +dayOfMonth;
+//                }
+//                else if (dayOfMonth >= 10 && month >= 9)
+//                {
+//                    sp_first_date = year + "-" + (month + 1) + "-" + dayOfMonth;
+//                }
+//                else if (dayOfMonth >= 10 && month < 9)
+//                {
+//                    sp_first_date = year + "-" + "0"+(month + 1) + "-" + dayOfMonth;
+//                }
+//
+//
+//                SharedPreferences sp = getSharedPreferences("Average_Salary", Context.MODE_PRIVATE);
+//                SharedPreferences.Editor editor = sp.edit();
+//                editor.putString("first_date", sp_first_date);
+//                editor.apply();
+//
+//                first_date.setText("Fecha inicial registrada: " + sp_first_date);
+//            }
+//        }, Integer.parseInt(Obetener_fecha("yyyy")),
+//                Integer.parseInt(Obetener_fecha("MM")) - 1,
+//                Integer.parseInt(Obetener_fecha("dd"))
+//        );
+//        dd.show();
+//    }
+//
+//    public void Reiniciar_fecha_inicial(View v)
+//    {
+//        SharedPreferences sp = getSharedPreferences("Average_Salary", Context.MODE_PRIVATE);
+//        SharedPreferences.Editor editor = sp.edit();
+//        editor.putString("first_date", "");
+//        editor.apply();
+//
+//        first_date.setText("Fecha inicial registrada: ");
+//    }
 }

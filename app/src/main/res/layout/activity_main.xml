@@ -25,33 +25,62 @@
         />
 
     <EditText
-        android:id="@+id/enter_user"
-        android:hint="Ingrese su usuario"
-        android:layout_height="wrap_content"
+        android:id="@+id/nombre_user"
         android:layout_width="match_parent"
-        android:textSize="25dp"
-        />
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        android:hint="Ingrese su nombre"/>
 
     <EditText
-        android:id="@+id/enter_password"
-        android:hint="Ingrese su contraseña"
-        android:layout_height="wrap_content"
+        android:id="@+id/mail_user"
         android:layout_width="match_parent"
-        android:textSize="25dp"
-        />
-
-    <Button
-        android:id="@+id/button_enter"
-        android:text="Inicio"
         android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Ingrese su correo electronico"
+        android:inputType="textEmailAddress" />
+
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:background="#DF0909"
-        android:textSize="30dp"
-        android:textColor="#FFF"
-        android:onClick="enterSystem"
-        />
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="@+id/fecha_inicio"
+        app:layout_constraintStart_toEndOf="@+id/fecha_inicio">
 
+        <TextView
+            android:id="@+id/fecha_inicio_inicio"
+            android:layout_width="325dp"
+            android:layout_height="19dp"
+            android:layout_marginTop="28dp"
+            android:text="Fecha de inicio:______________"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.072"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/salario_promedio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginBottom="50dp"
+            android:text="Salario:____________"
+            app:layout_constraintBottom_toBottomOf="@+id/Continuar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/fecha_inicio_inicio" />
+
+        <TextView
+            android:id="@+id/Continuar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Continuar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
 
 
 </LinearLayout>

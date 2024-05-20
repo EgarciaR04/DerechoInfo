@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.aplicaciondeindemnizaciones.MainActivity;
 import com.example.aplicaciondeindemnizaciones.R;
 
 public class SalarioPromedioActivity extends AppCompatActivity {
@@ -25,7 +26,7 @@ public class SalarioPromedioActivity extends AppCompatActivity {
         Float average_salary;
         average_salary = Average();
         SP_average(average_salary);
-        Intent intent = new Intent(this, Home.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
