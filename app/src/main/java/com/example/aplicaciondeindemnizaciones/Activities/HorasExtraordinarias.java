@@ -33,19 +33,32 @@ public class HorasExtraordinarias extends AppCompatActivity {
 
     public void Calculo_Horas_Extra(View v)
     {
-        if(average_salary != 0)
+        try
         {
-            Float horas_debidas = average_salary/30;
-            horas_debidas = horas_debidas / 24;
-            horas_debidas = horas_debidas * 1.5f;
-            horas_debidas = horas_debidas * Float.parseFloat(horas.getText().toString());
-            Toast.makeText(this, "Valor de las horas extras: " + horas_debidas, Toast.LENGTH_SHORT).show();
+            if(average_salary != 0)
+            {
+                Float horas_debidas = average_salary/30;
+                horas_debidas = horas_debidas / 24;
+                horas_debidas = horas_debidas * 1.5f;
+                horas_debidas = horas_debidas * Float.parseFloat(horas.getText().toString());
+                Toast.makeText(this, "Valor de las horas extras: " + horas_debidas, Toast.LENGTH_SHORT).show();
+
+                // Guardar datos
+                SharedPreferences sp1 = getSharedPreferences("PagosPendientes", Context.MODE_PRIVATE);
+                SharedPreferences.Editor edi = sp1.edit();
+                edi.putFloat("Horas_debidas", horas_debidas);
+                edi.apply();
+            }
+            else
+            {
+                Toast.makeText(this, "Ingrese su salario promedio", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, SalarioPromedioActivity.class);
+                startActivity(intent);
+            }
         }
-        else
+        catch (Exception ex)
         {
-            Toast.makeText(this, "Ingrese su salario promedio", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, SalarioPromedioActivity.class);
-            startActivity(intent);
+            Toast.makeText(HorasExtraordinarias.this, "Ingrese las horas extras", Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -51,10 +51,10 @@
             android:id="@+id/fecha_inicio_inicio"
             android:layout_width="325dp"
             android:layout_height="19dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="32dp"
             android:text="Fecha de inicio:______________"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.072"
+            app:layout_constraintHorizontal_bias="0.186"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -68,7 +68,8 @@
             android:text="Salario:____________"
             app:layout_constraintBottom_toBottomOf="@+id/Continuar"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/fecha_inicio_inicio" />
+            app:layout_constraintTop_toTopOf="@+id/fecha_inicio_inicio"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/Continuar"
@@ -78,20 +79,34 @@
             android:text="Continuar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.616" />
 
         <Button
             android:id="@+id/button8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"
             android:onClick="URL"
+            android:text="Button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Continuar"
-            app:layout_constraintVertical_bias="0.641" />
+            app:layout_constraintVertical_bias="0.163" />
+
+        <TextView
+            android:id="@+id/last_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toTopOf="@+id/salario_promedio"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.053"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fecha_inicio_inicio"
+            app:layout_constraintVertical_bias="0.586" />
 
     </android.support.constraint.ConstraintLayout>
 

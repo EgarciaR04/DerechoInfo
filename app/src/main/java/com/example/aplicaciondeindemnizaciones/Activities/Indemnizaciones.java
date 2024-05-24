@@ -51,6 +51,7 @@ public class Indemnizaciones extends AppCompatActivity {
         if(salary != 0)
         {
             salary_user.setText(salary.toString());
+            salary_user.setEnabled(false);
         }
 
         String first_date = sp.getString("first_date", "");
@@ -60,44 +61,12 @@ public class Indemnizaciones extends AppCompatActivity {
             fecha_contratacion_str = first_date;
         }
 
-        finish_date.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DatePickerDialog dd = new DatePickerDialog(Indemnizaciones.this, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-
-                        if (dayOfMonth < 10 && month < 9)
-                        {
-                            fin = year + "-"+ "0" + (month + 1) + "-" +"0" + dayOfMonth;
-                        }
-                        else if (dayOfMonth < 10 && month >= 9)
-                        {
-                            fin = year + "-" + (month + 1) + "-" +"0"+ dayOfMonth;
-                        }
-                        else if (dayOfMonth >= 10 && month >= 9)
-                        {
-                            fin = year + "-" + (month + 1) + "-" + dayOfMonth;
-                        }
-                        else if (dayOfMonth >= 10 && month < 9)
-                        {
-                            fin = year + "-" + "0"+(month + 1) + "-" + dayOfMonth;
-                        }
-
-                        fecha_fin.append(fin);
-
-                        SharedPreferences sp = getSharedPreferences("Average_Salary", Context.MODE_PRIVATE);
-                        SharedPreferences.Editor edit = sp.edit();
-                        edit.putString("last_date", fin);
-                        edit.apply();
-                    }
-                }, Integer.parseInt(obtenerFecha("yyyy", "America/Guatemala")),
-                        Integer.parseInt(obtenerFecha("MM", "America/Guatemala")) - 1,
-                        Integer.parseInt(obtenerFecha("dd", "America/Guatemala"))
-                );
-                dd.show();
-            }
-        });
+        String last_date = sp.getString("last_date", "");
+        if(last_date != "")
+        {
+            fecha_fin.setText("Fecha de fin: " + last_date);
+            fin = last_date;
+        }
     }
 
     public void Calculo(View v)
@@ -112,7 +81,7 @@ public class Indemnizaciones extends AppCompatActivity {
         editor.putFloat("indemnizacion", indemnizacion);
         editor.apply();
 
-        Toast.makeText(this, "Indemnización: " + indemnizacion, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Indemnización: " + indemnizacion, Toast.LENGTH_SHORT).show();
     }
 
     public void Declaracion()

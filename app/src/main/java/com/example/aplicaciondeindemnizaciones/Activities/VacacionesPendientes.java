@@ -162,6 +162,12 @@ public class VacacionesPendientes extends AppCompatActivity {
             prestaciones = prestaciones / 304f;
             prestaciones = prestaciones * calcularDiasTranscurridos();
             Toast.makeText(this, "Vacaciones pendientes: " + prestaciones, Toast.LENGTH_SHORT).show();
+
+            // Guardar info
+            SharedPreferences sp1 = getSharedPreferences("PagosPendientes", Context.MODE_PRIVATE);
+            SharedPreferences.Editor edi = sp1.edit();
+            edi.putFloat("Prestaciones", prestaciones);
+            edi.apply();
         }
         else
         {

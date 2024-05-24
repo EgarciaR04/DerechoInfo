@@ -138,6 +138,12 @@ public class Bono14 extends AppCompatActivity {
         Float Bono;
         Bono = ((Float.parseFloat(average_salary.getText().toString()) / 365) * calcularDiasTranscurridos());
         Toast.makeText(this, "Bonos 14 pendientes: " + Bono, Toast.LENGTH_SHORT).show();
+
+        // Guardar datos
+        SharedPreferences sp1 = getSharedPreferences("PagosPendientes", Context.MODE_PRIVATE);
+        SharedPreferences.Editor edi = sp1.edit();
+        edi.putFloat("Bono", Bono);
+        edi.apply();
     }
 
     private void Declaracion() {

@@ -143,6 +143,10 @@ public class AguinaldoActivity extends AppCompatActivity {
         Float aguinaldo;
         aguinaldo = ((Float.parseFloat(average_salary.getText().toString()) / 365) * calcularDiasTranscurridos());
         Toast.makeText(this, "Aguinaldo pendiente: " + aguinaldo, Toast.LENGTH_SHORT).show();
+        SharedPreferences sp1 = getSharedPreferences("PagosPendientes", Context.MODE_PRIVATE);
+        SharedPreferences.Editor edi = sp1.edit();
+        edi.putFloat("Aguinaldo", aguinaldo);
+        edi.apply();
     }
 
     private float calcularDiasTranscurridos() {

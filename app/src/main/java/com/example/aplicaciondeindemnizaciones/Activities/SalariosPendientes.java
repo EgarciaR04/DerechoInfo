@@ -139,6 +139,12 @@ public class SalariosPendientes extends AppCompatActivity {
         Float salarios_penientes;
         salarios_penientes = ((Float.parseFloat(average_salary.getText().toString()) / 30) * calcularDiasTranscurridos());
         Toast.makeText(this, "Salario pendiente: " + salarios_penientes, Toast.LENGTH_SHORT).show();
+
+        // Guardar info
+        SharedPreferences sp1 = getSharedPreferences("PagosPendientes", Context.MODE_PRIVATE);
+        SharedPreferences.Editor edi = sp1.edit();
+        edi.putFloat("Salarios_pendiente", salarios_penientes);
+        edi.apply();
     }
 
     private void Declaracion() {
