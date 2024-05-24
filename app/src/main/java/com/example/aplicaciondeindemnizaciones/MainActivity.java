@@ -114,8 +114,8 @@ public class MainActivity extends AppCompatActivity {
 
     // Enviar en url
     public void URL(View view){
-        Uri _url = Uri.parse(url);
-        Intent i = new Intent(Intent.ACTION_VIEW, _url);
+//        Uri _url = Uri.parse(url);
+        Intent i = new Intent(this, MainActivity2.class);
         startActivity(i);
     }
 
@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
         edt_user = findViewById(R.id.nombre_user);
         edt_mail = findViewById(R.id.mail_user);
 
-        SharedPreferences sp = getSharedPreferences("Average_Salary", Context.MODE_PRIVATE);
+        sp = getSharedPreferences("Average_Salary", Context.MODE_PRIVATE);
         Float texto = sp.getFloat("average_salary", 0f);
         tv_salario.append(String.valueOf(texto));
 

@@ -112,7 +112,7 @@ public class Indemnizaciones extends AppCompatActivity {
         editor.putFloat("indemnizacion", indemnizacion);
         editor.apply();
 
-        Toast.makeText(this, "Indemnización: " + indemnizacion, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Indemnización: " + indemnizacion, Toast.LENGTH_LONG).show();
     }
 
     public void Declaracion()
