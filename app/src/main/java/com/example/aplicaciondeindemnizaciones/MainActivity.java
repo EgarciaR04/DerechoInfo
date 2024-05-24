@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.ConditionVariable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView tv_fecha_inicio, tv_salario, tv_continuar;
     private String sp_first_date;
     private SharedPreferences sp;
+    private String url = "https://www.youtube.com/watch?v=mK5s9n2mVMA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,6 +112,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // Enviar en url
+    public void URL(View view){
+        Uri _url = Uri.parse(url);
+        Intent i = new Intent(Intent.ACTION_VIEW, _url);
+        startActivity(i);
+    }
+
     // Funcion utilizada para la declaracion de variables
     public void Declaracion_variables()
     {
@@ -118,6 +127,10 @@ public class MainActivity extends AppCompatActivity {
         tv_continuar = findViewById(R.id.Continuar);
         edt_user = findViewById(R.id.nombre_user);
         edt_mail = findViewById(R.id.mail_user);
+
+        SharedPreferences sp = getSharedPreferences("Average_Salary", Context.MODE_PRIVATE);
+        Float texto = sp.getFloat("average_salary", 0f);
+        tv_salario.append(String.valueOf(texto));
 
 
 //        SharedPreferences sp = getSharedPreferences("Average_Salary", Context.MODE_PRIVATE);
