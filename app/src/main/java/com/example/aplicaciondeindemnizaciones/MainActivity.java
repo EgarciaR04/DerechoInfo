@@ -36,8 +36,48 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Establecer valores en nada
+
+        Borrar_Shared();
+
         Declaracion_variables();
         Declarar_Click();
+    }
+
+    private void Borrar_Shared() {
+        // Borrar datos de usuaio
+        sp = getSharedPreferences("Average_Salary", Context.MODE_PRIVATE);
+        editor = sp.edit();
+        if (sp.getBoolean("Borrar", false))
+        {
+            editor.putBoolean("Borrar", false);
+            editor.apply();
+            return;
+        }
+
+        editor.putFloat("average_salary", 0f);
+        editor.putString("last_date", "");
+        editor.putString("mail_user", "");
+        editor.putString("name_user", "");
+        editor.putString("first_date", "");
+        editor.apply();
+
+        // Borrar operaciones
+        sp = getSharedPreferences("PagosPendientes", Context.MODE_PRIVATE);
+        editor = sp.edit();
+
+        editor.putFloat("Salarios_pendiente", 0f);
+        editor.putFloat("Prestaciones", 0f);
+        editor.putFloat("Horas_debidas", 0f);
+        editor.putFloat("indemnizacion", 0f);
+        editor.putFloat("Bono", 0f);
+        editor.putFloat("Aguinaldo", 0f);
+
+        editor.apply();
+
+
+
     }
 
     public void Declarar_Click()

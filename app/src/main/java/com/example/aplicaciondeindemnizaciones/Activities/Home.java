@@ -4,12 +4,14 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
+import com.example.aplicaciondeindemnizaciones.MainActivity;
 import com.example.aplicaciondeindemnizaciones.R;
 
 import org.w3c.dom.Text;
@@ -30,7 +32,7 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        sp = getSharedPreferences("Average_Salary", Context.MODE_PRIVATE);
+        sp = getSharedPreferences("SalariosPendientes", Context.MODE_PRIVATE);
         editor = sp.edit();
     }
 
@@ -77,13 +79,10 @@ public class Home extends AppCompatActivity {
 
     public void Borrar_datos(View v)
     {
-        editor.putString("last_date", "");
-        editor.putString("first_date", "");
-        editor.putString("name_user", "");
-        editor.putString("mail_user", "");
-        editor.putFloat("average_salary", 0f);
-
+        editor.putBoolean("Borrar",  false);
         editor.apply();
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
     }
 
 }

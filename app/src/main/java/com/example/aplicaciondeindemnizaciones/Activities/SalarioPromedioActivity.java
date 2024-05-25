@@ -29,6 +29,12 @@ public class SalarioPromedioActivity extends AppCompatActivity {
         if (average_salary != 0)
         {
             SP_average(average_salary);
+
+            SharedPreferences sp = getSharedPreferences("Average_Salary", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putBoolean("Borrar", true);
+            editor.apply();
+
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
